@@ -38,4 +38,6 @@ body {
         Create different boxes for digits and operators*/
 .button {
     width: 150px;
+    height: 50px;
+    font-size: 32px;
 }

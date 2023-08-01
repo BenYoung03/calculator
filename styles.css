@@ -8,6 +8,18 @@ body {
     margin-bottom: 100px;
 }
 
+.container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: grey;
+}
+
 #display {
     width: 100%;
     height: 100px;
@@ -17,4 +29,13 @@ body {
     text-align: right;
     padding: 10px;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*TODO: Fix styling for buttons and make them properly wrap. 
+        Create different boxes for digits and operators*/
+.button {
+    width: 150px;
 }

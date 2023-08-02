@@ -1,3 +1,6 @@
+//TODO: Add functions to handle dot, numbers, arithmetic, etc.
+// remove redundant code like the displayValue variable if you can 
+
 //Arthimetic functions
 function add(a, b){
     return a + b;
@@ -158,4 +161,51 @@ buttons.forEach((button) => {
             display.textContent = displayValue;
         }
     });
+});
+
+function convertOperatorToText(operator){
+    if(operator === '+'){
+        return 'add';
+    } else if (operator === '-'){
+        return 'subtract';
+    } else if (operator === '*'){
+        return 'multiply';
+    } else {
+        return 'divide';
+    }
+}
+
+document.addEventListener('keydown', (e) => {
+    console.log(e.key);
+    if (e.key >= 0 && e.key <= 9) {
+        let num = document.querySelector(`#num${e.key}`);
+        if(num !== null){
+            num.click();
+        }
+    } else if (e.key === '.') {
+        let decimal = document.querySelector('#decimal');
+        if(decimal !== null){
+            decimal.click();
+        }
+    } else if (e.key === '=' || e.key === 'Enter') {
+        let equals = document.querySelector('#equals');
+        if(equals !== null){
+            equals.click();
+        }
+    } else if (e.key === 'Backspace') {
+        let backspace = document.querySelector('#backspace');
+        if(backspace !== null){
+            backspace.click();
+        }
+    } else if (e.key === 'Escape') {
+        let clear = document.querySelector('#clear');
+        if(clear !== null){
+            clear.click();
+        }
+    } else if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/') {
+        let operator = document.querySelector(`#${convertOperatorToText(e.key)}`);
+        if(operator !== null){
+            operator.click();
+        }
+    }
 });

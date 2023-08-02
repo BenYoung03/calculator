@@ -20,17 +20,22 @@ function divide(a, b){
 function operate(firstNum, secondNum, operator){
     decimal = false;
     if(operator === '+'){
-        return add(firstNum, secondNum).toFixed(2);
+        return add(firstNum, secondNum);
     } else if (operator === '-'){
-        return subtract(firstNum, secondNum).toFixed(2);
+        return subtract(firstNum, secondNum);
     } else if (operator === '*'){
-        return multiply(firstNum, secondNum).toFixed(2);
+        return multiply(firstNum, secondNum);
     } else {
         if(secondNum === 0){ 
             display.textContent = 'Cannot divide by 0';
             return null;
         }
-        return divide(firstNum, secondNum).toFixed(2);
+        let result = divide(firstNum, secondNum);
+        if(Number.isInteger(result)){
+            return result.toString();
+        } else {
+            return result.toFixed(4);
+        }
     }
 }
 

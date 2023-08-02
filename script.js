@@ -18,6 +18,7 @@ function divide(a, b){
 //Operate function that checks which operator is being used and calls the appropriate function
 
 function operate(firstNum, secondNum, operator){
+    decimal = false;
     if(operator === '+'){
         return add(firstNum, secondNum).toFixed(2);
     } else if (operator === '-'){
@@ -40,39 +41,42 @@ let displayValue = '';
 let firstNum = null;
 let result = null;
 let operator = null;
+let decimal = false;
 
+function updateDisplay(){
+    displayValue = '';
+    display.textContent = displayValue;
+    decimal = false;
+}
 //Event listeners for each button including clear, add, subtract, multiply, divide, and equals
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         if(button.id === 'clear'){
-            displayValue = '';
-            display.textContent = displayValue;
+            updateDisplay();
             firstNum = null;
             result = null;
             operator = null;
         } else if(button.id === 'add'){
             if(display.textContent === '') displayValue = '0';
             if(firstNum === null){
-                firstNum = parseInt(displayValue);
-                displayValue = '';
-                display.textContent = displayValue;
+                firstNum = parseFloat(displayValue);
+                console.log(firstNum);
+                updateDisplay();
                 operator = '+';
             } else {
-                let secondNum = parseInt(displayValue);
-                display.textContent = '';
+                let secondNum = parseFloat(displayValue);
+                updateDisplay();
                 firstNum = operate(firstNum, secondNum, operator);
                 operator = '+';
-                displayValue = '';
             }
         } else if(button.id === 'subtract'){
             if(display.textContent === '') displayValue = '0';
             if(firstNum === null){
-                firstNum = parseInt(displayValue);
-                displayValue = '';
-                display.textContent = displayValue;
+                firstNum = parseFloat(displayValue);
+                updateDisplay();
                 operator = '-';
             } else {
-                let secondNum = parseInt(displayValue);
+                let secondNum = parseFloat(displayValue);
                 display.textContent = ''; //Maybe change this to display the firstNum value
                 firstNum = operate(firstNum, secondNum, operator);    
                 operator = '-';
@@ -81,12 +85,11 @@ buttons.forEach((button) => {
         } else if(button.id === 'multiply'){
             if(display.textContent === '') displayValue = '0';
             if(firstNum === null){
-                firstNum = parseInt(displayValue);
-                displayValue = '';
-                display.textContent = displayValue;
+                firstNum = parseFloat(displayValue);
+                updateDisplay();
                 operator = '*';
             } else {
-                let secondNum = parseInt(displayValue);
+                let secondNum = parseFloat(displayValue);
                 display.textContent = ''; //Maybe change this to display the firstNum value
                 firstNum = operate(firstNum, secondNum, operator);
                 operator = '*';
@@ -95,12 +98,11 @@ buttons.forEach((button) => {
         } else if(button.id === 'divide'){
             if(display.textContent === '') displayValue = '0';
             if(firstNum === null){
-                firstNum = parseInt(displayValue);
-                displayValue = '';
-                display.textContent = displayValue;
+                firstNum = parseFloat(displayValue);
+                updateDisplay();
                 operator = '/';
             } else {
-                let secondNum = parseInt(displayValue);
+                let secondNum = parseFloat(displayValue);
                 if(secondNum === 0){
                     display.textContent = 'OOPSIE!';
                     return;
@@ -112,7 +114,7 @@ buttons.forEach((button) => {
             }
         } else if (button.id === 'equals'){
             if(firstNum !== null && operator !== null){
-                let secondNum = parseInt(displayValue);
+                let secondNum = parseFloat(displayValue);
                 let result = operate(firstNum, secondNum, operator);
                 if(result === null){
                     // Handle divide by 0 error
@@ -125,6 +127,14 @@ buttons.forEach((button) => {
                     firstNum = null;
                     operator = null;
                 }
+                equals = true;
+            }
+        } 
+        else if (button.id === 'decimal'){
+            if(!decimal){
+                displayValue += '.';
+                display.textContent = displayValue;
+                decimal = true;
             }
         } else {
             displayValue += button.textContent;

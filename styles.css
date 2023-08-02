@@ -5,12 +5,11 @@ body {
     background-color: #e8e8e8;
     font-family: 'Roboto', sans-serif;
     text-align: center;
-    margin-bottom: 100px;
 }
 
-.container {
+.calculator {
     width: 100%;
-    max-width: 500px;
+    max-width: 700px;
     margin: 0 auto;
     padding: 5px;
     display: flex;
@@ -34,10 +33,24 @@ body {
     justify-content: center;
 }
 
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.digits {
+    width: 400px;
+}
+
+.operators {
+    width: 200px;
+}
+
 /*TODO: Fix styling for buttons and make them properly wrap. 
         Create different boxes for digits and operators*/
 .button {
-    width: 150px;
+    width: 100px;
     height: 50px;
     font-size: 32px;
 }

@@ -118,6 +118,7 @@ buttons.forEach((button) => {
                 displayValue = '';
             }
         } else if (button.id === 'equals'){
+            if(display.textContent === '') displayValue = '0';
             if(firstNum !== null && operator !== null){
                 let secondNum = parseFloat(displayValue);
                 let result = operate(firstNum, secondNum, operator);
@@ -134,13 +135,15 @@ buttons.forEach((button) => {
                 }
                 equals = true;
             }
-        } 
-        else if (button.id === 'decimal'){
+        } else if (button.id === 'decimal'){
             if(!decimal){
                 displayValue += '.';
                 display.textContent = displayValue;
                 decimal = true;
             }
+        } else if (button.id === 'backspace'){
+            displayValue = displayValue.slice(0, -1);
+            display.textContent = displayValue;
         } else {
             displayValue += button.textContent;
             display.textContent = displayValue;

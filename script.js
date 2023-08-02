@@ -18,24 +18,25 @@ function divide(a, b){
 //Operate function that checks which operator is being used and calls the appropriate function
 
 function operate(firstNum, secondNum, operator){
+    let result = 0;
     decimal = false;
     if(operator === '+'){
-        return add(firstNum, secondNum);
+        result = add(firstNum, secondNum);
     } else if (operator === '-'){
-        return subtract(firstNum, secondNum);
+        result = subtract(firstNum, secondNum);
     } else if (operator === '*'){
-        return multiply(firstNum, secondNum);
+        result = multiply(firstNum, secondNum);
     } else {
         if(secondNum === 0){ 
             display.textContent = 'Cannot divide by 0';
             return null;
         }
-        let result = divide(firstNum, secondNum);
-        if(Number.isInteger(result)){
-            return result.toString();
-        } else {
-            return result.toFixed(4);
-        }
+        result = divide(firstNum, secondNum);
+    }
+    if(Number.isInteger(result)){
+        return result.toString();
+    } else {
+        return result.toFixed(4);
     }
 }
 
@@ -65,14 +66,16 @@ buttons.forEach((button) => {
             if(display.textContent === '') displayValue = '0';
             if(firstNum === null){
                 firstNum = parseFloat(displayValue);
-                console.log(firstNum);
                 updateDisplay();
                 operator = '+';
             } else {
                 let secondNum = parseFloat(displayValue);
-                updateDisplay();
                 firstNum = operate(firstNum, secondNum, operator);
+                decimal = false;
+                displayValue = firstNum.toString();
+                display.textContent = displayValue;
                 operator = '+';
+                displayValue = '';
             }
         } else if(button.id === 'subtract'){
             if(display.textContent === '') displayValue = '0';
@@ -82,8 +85,10 @@ buttons.forEach((button) => {
                 operator = '-';
             } else {
                 let secondNum = parseFloat(displayValue);
-                display.textContent = ''; //Maybe change this to display the firstNum value
-                firstNum = operate(firstNum, secondNum, operator);    
+                firstNum = operate(firstNum, secondNum, operator);
+                decimal = false;
+                displayValue = firstNum.toString();
+                display.textContent = displayValue;  
                 operator = '-';
                 displayValue = '';
             }
@@ -95,8 +100,10 @@ buttons.forEach((button) => {
                 operator = '*';
             } else {
                 let secondNum = parseFloat(displayValue);
-                display.textContent = ''; //Maybe change this to display the firstNum value
                 firstNum = operate(firstNum, secondNum, operator);
+                decimal = false;
+                displayValue = firstNum.toString();
+                display.textContent = displayValue;  
                 operator = '*';
                 displayValue = '';
             }
@@ -112,8 +119,10 @@ buttons.forEach((button) => {
                     display.textContent = 'OOPSIE!';
                     return;
                 }
-                display.textContent = ''; //Maybe change this to display the firstNum value
                 firstNum = operate(firstNum, secondNum, operator);
+                decimal = false;
+                displayValue = firstNum.toString();
+                display.textContent = displayValue;  
                 operator = '/';
                 displayValue = '';
             }

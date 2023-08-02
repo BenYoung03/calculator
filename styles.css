@@ -36,14 +36,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
-.digits {
-    width: 400px;
-}
-
-.operators {
-    width: 200px;
+.top-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 /*TODO: Fix styling for buttons and make them properly wrap. 

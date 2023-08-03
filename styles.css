@@ -128,8 +128,8 @@ body {
 /* Media queries for smaller screens */
 @media only screen and (max-width: 600px) {
     .calculator {
-        width: 50%;
-        flex: 0;
+        width: 55%;
+        max-width: 400px;
     }
 
     #display {
@@ -140,7 +140,7 @@ body {
     .button {
         font-size: 20px;
         width: 60px;
-        height: 50px;
+        height: 40px;
     }
 
     #clear, #backspace {

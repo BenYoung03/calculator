@@ -10,7 +10,6 @@ body {
     text-align: center;
     font-size: 60px;
     margin: 0;
-    /*make this title a cool font*/
     font-family: 'Open Sans', sans-serif;
     font-weight: 100;
     color: #fff;
@@ -80,8 +79,6 @@ body {
     background-color: #ff3333;
 }
 
-/*TODO: Fix styling for buttons and make them properly wrap. 
-        Create different boxes for digits and operators*/
 .button {
     width: 100px;
     height: 50px;
@@ -160,8 +157,8 @@ body {
 
     .button {
         font-size: 16px;
-        width: 50px;
-        height: 40px;
+        width: 40px;
+        height: 30px;
     }
 
     #clear, #backspace {

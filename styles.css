@@ -124,7 +124,7 @@ body {
 
 @media only screen and (max-width: 600px) {
     .calculator {
-        width: 55%;
+        width: 60%;
         max-width: 400px;
     }
 
@@ -146,8 +146,8 @@ body {
 
 @media only screen and (max-width: 400px) {
     .calculator {
-        width: 55%;
-        max-width: 300px;
+        width: 70%;
+        max-width: 350px;
     }
 
     #display {

@@ -154,6 +154,7 @@ buttons.forEach((button) => {
                 decimal = true;
             }
         } else if (button.id === 'backspace'){
+            if(displayValue.slice(-1) === '.') decimal = false;
             displayValue = displayValue.slice(0, -1);
             display.textContent = displayValue;
         } else {

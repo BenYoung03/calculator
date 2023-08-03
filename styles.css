@@ -125,7 +125,6 @@ body {
     position: fixed;
 }
 
-/* Media queries for smaller screens */
 @media only screen and (max-width: 600px) {
     .calculator {
         width: 55%;
@@ -145,5 +144,27 @@ body {
 
     #clear, #backspace {
         font-size: 25px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .calculator {
+        width: 55%;
+        max-width: 300px;
+    }
+
+    #display {
+        font-size: 20px;
+        height: 30px;
+    }
+
+    .button {
+        font-size: 16px;
+        width: 50px;
+        height: 40px;
+    }
+
+    #clear, #backspace {
+        font-size: 20px;
     }
 }
